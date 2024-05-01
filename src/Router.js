@@ -13,8 +13,8 @@ function Router() {
       <BrowserRouter>
          <Routes>
             {/*Available to everyone */}
-            <Route exact path="/home" element={<StartPage/>}/>
-              
+            <Route exact path="/" element={<Navigate replace to="/home"/>}/>
+            <Route path="/home" element={<StartPage/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/search" element={<Search/>}/>
             <Route path="/signup" element={<SignUp/>} />
