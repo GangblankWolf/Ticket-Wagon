@@ -1,5 +1,6 @@
 @import '../App.css';
 
-body{
-   color: var(--example-font-color);
+.input-error{
+   color: red;
+   font-size: small;
 }
