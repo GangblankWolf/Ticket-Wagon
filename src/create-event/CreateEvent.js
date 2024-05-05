@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from 'react'
+import { createEventId } from './event-utils.js'
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { object, string, number, date } from "yup";
 import "./CreateEvent.css";
 
 function CreateEvent() {
+   const [currentEvents, setCurrentEvents] = useState([])
+
    const eventValues = {
       title: "",
       description: "",
@@ -56,7 +59,7 @@ function CreateEvent() {
                         </label>
                         <div className="col-9">
                            <Field type="text" name="title" />
-                           <ErrorMessage name="title" component="div" />
+                           <ErrorMessage name="title" component="div" className="input-error" />
                         </div>
                      </div>
                      <div className="row mb-3">
@@ -65,7 +68,7 @@ function CreateEvent() {
                         </label>
                         <div className="col-9">
                            <Field type="date" name="date" />
-                           <ErrorMessage name="date" component="div" />
+                           <ErrorMessage name="date" component="div" className="input-error"/>
                         </div>
                      </div>
                      <div className="row mb-3">
@@ -74,7 +77,7 @@ function CreateEvent() {
                         </label>
                         <div className="col-9">
                            <Field type="time" name="startTime" />
-                           <ErrorMessage name="startTime" component="div" />
+                           <ErrorMessage name="startTime" component="div" className="input-error"/>
                         </div>
                      </div>
                      <div className="row mb-3">
@@ -99,7 +102,7 @@ function CreateEvent() {
                         </label>
                         <div className="col-9">
                            <Field type="text" name="location" />
-                           <ErrorMessage name="location" component="div" />
+                           <ErrorMessage name="location" component="div" className="input-error"/>
                         </div>
                      </div>
                      <div className="row mb-3">
@@ -120,7 +123,7 @@ function CreateEvent() {
                      </div>
                      <div className="row mb-3">
                         <label className="col-3 col-form-label-sm">
-                           Addition Venue Information:{" "}
+                           Additional Venue Information:{" "}
                         </label>
                         <div className="col-9">
                            <Field type="text" name="venueInfo" />
