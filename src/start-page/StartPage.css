@@ -3,3 +3,45 @@
 body{
    color: var(--example-font-color);
 }
+
+.Container1 {
+   color: white;
+   background-image: url('/public/Ticketwagon.png');
+   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position-y: 100px;
+  background-position-x: center;
+   background-color: crimson;
+   background-size: 35%;
+   padding-top: 2%;
+   padding-bottom: 5.9%;
+   height: 500px
+}
+
+.textposition {
+text-align: center;
+padding-top: 105.5px;
+}
+
+#whatif {
+   font-family: sans-serif;
+   font-weight: bolder;
+   font-size: xxx-large;
+}
+
+.SearchDescription {
+   text-align: end;
+   padding-right: 450px;
+   padding-top: 50px;
+   padding-left: 10px;
+}
+
+#Title {
+   padding-right: 140px;
+   padding-left: 30px;
+   font-size: xx-large;
+}
+
+#description1 {
+   padding-left: 960px;
+}
