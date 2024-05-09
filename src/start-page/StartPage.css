@@ -8,7 +8,7 @@ body{
    color: white;
    background-image: url('/public/Ticketwagon.png');
    background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: local;
   background-position-y: 100px;
   background-position-x: center;
    background-color: crimson;
@@ -32,7 +32,7 @@ padding-top: 105.5px;
 .SearchDescription {
    text-align: end;
    padding-right: 450px;
-   padding-top: 50px;
+   padding-top: 150px;
    padding-left: 10px;
 }
 
@@ -42,6 +42,27 @@ padding-top: 105.5px;
    font-size: xx-large;
 }
 
-#description1 {
+
+.CalenderDescription {
+   text-align: end;
+   padding-right: 450px;
+   padding-top: 150px;
+   padding-left: 10px;
+}
+
+.Events {
+   text-align: end;
+   padding-right: 450px;
+   padding-top: 150px;
+   padding-left: 10px;
+}
+
+#EVTitle {
+   padding-right: 140px;
+   padding-left: 30px;
+   font-size: xx-large;
+}
+
+p{
    padding-left: 960px;
 }
