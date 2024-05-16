@@ -1,18 +1,23 @@
 import React, { useState } from 'react'
-import { createEventId } from './event-utils.js'
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { object, string, number, date } from "yup";
 import "./CreateEvent.css";
 
-function CreateEvent() {
-   const [currentEvents, setCurrentEvents] = useState([])
+let eventGuid = 1;
 
+export function createEventId() {
+   return String(eventGuid++);
+}
+
+function CreateEvent() {
+   const events = [];
    const eventValues = {
+      id: "",
       title: "",
       description: "",
       date: "",
-      startTime: "",
-      endTime: "",
+      start: "",
+      end: "",
       price: "",
       location: "",
       ticketLink: "",
@@ -26,10 +31,10 @@ function CreateEvent() {
          .max(150, "Please choose a shorter title."),
       description: string().max(1000, "Description is too long"),
       date: date().required("This field is required"),
-      startTime: string()
+      start: string()
          .required("This field is required")
          .max(5, "Time needs to be in 'HH:mm' format "),
-      endTime: string().max(5, "Time needs to be in 'HH:mm' format "),
+      end: string().max(5, "Time needs to be in 'HH:mm' format "),
       price: number(),
       location: string()
          .required("This field is required")
@@ -45,6 +50,8 @@ function CreateEvent() {
             validationSchema={eventSchema}
             onSubmit={(values, { setSubmitting }) => {
                setTimeout(() => {
+                  events.push(values);
+                  events[eventGuid].id = createEventId();
                   alert(JSON.stringify(values, null, 2));
                   setSubmitting(false);
                }, 400);
@@ -76,8 +83,8 @@ function CreateEvent() {
                            Start Time:{" "}
                         </label>
                         <div className="col-9">
-                           <Field type="time" name="startTime" />
-                           <ErrorMessage name="startTime" component="div" className="input-error"/>
+                           <Field type="time" name="start" />
+                           <ErrorMessage name="start" component="div" className="input-error"/>
                         </div>
                      </div>
                      <div className="row mb-3">
@@ -85,7 +92,7 @@ function CreateEvent() {
                            End Time:{" "}
                         </label>
                         <div className="col-9">
-                           <Field type="time" name="endTime" />
+                           <Field type="time" name="end" />
                         </div>
                      </div>
                      <div className="row mb-3">

@@ -4,18 +4,20 @@ import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
-import { INITIAL_EVENTS } from '../create-event/event-utils.js'
+import { INITIAL_EVENTS, createEventId } from './event-utils'
+import EventCard from '../event-card/EventCard'
 import './Calendar.css'
 
-export default function Calendar() {
+export default function DemoApp() {
   const [currentEvents, setCurrentEvents] = useState([])
 
   function handleDateSelect(selectInfo) {
+    let title = prompt('Please enter a new title for your event')
     let calendarApi = selectInfo.view.calendar
 
     calendarApi.unselect() // clear date selection
 
-    /* if (title) {
+    if (title) {
       calendarApi.addEvent({
         id: createEventId(),
         title,
@@ -23,7 +25,7 @@ export default function Calendar() {
         end: selectInfo.endStr,
         allDay: selectInfo.allDay
       })
-    } */
+    }
   }
 
   function handleEventClick(clickInfo) {
@@ -51,10 +53,11 @@ export default function Calendar() {
             right: 'dayGridMonth,timeGridWeek,timeGridDay'
           }}
           initialView='dayGridMonth'
-          editable={false}
+          editable={true}
           selectable={true}
           selectMirror={true}
           dayMaxEvents={true}
+          weekends={true}
           initialEvents={INITIAL_EVENTS} // alternatively, use the `events` setting to fetch from a feed
           select={handleDateSelect}
           eventContent={renderEventContent} // custom render function
@@ -80,11 +83,32 @@ function renderEventContent(eventInfo) {
   )
 }
 
-function Sidebar({currentEvents }) {
+
+function Sidebar({ currentEvents }) {
+  /* function addEvent() {
+    let title = prompt('Please enter a title for your event')
+    let calendarApi = selectInfo.view.calendar
+
+    calendarApi.unselect() // clear date selection
+
+    if (title) {
+      calendarApi.addEvent({
+        id: createEventId(),
+        title,
+        start: selectInfo.startStr,
+        end: selectInfo.endStr,
+        allDay: selectInfo.allDay
+      })
+    }
+  } */
+
   return (
     <div className='calendar-sidebar'>
       <div className='calendar-sidebar-section'>
-        <h2>Your Events ({currentEvents.length})</h2>
+        {/* <button type="submit" onClick={() => {addEvent()}}>Add Event</button> */}
+      </div>
+      <div className='calendar-sidebar-section'>
+        <h2>All Events ({currentEvents.length})</h2>
         <ul>
           {currentEvents.map((event) => (
             <SidebarEvent key={event.id} event={event} />

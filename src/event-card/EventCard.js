@@ -1,11 +1,12 @@
-import './EventCard.css';
+import "./EventCard.css";
 
-function EventCard() {
-   return(
+function EventCard(eventInfo) {
+   return (
       <div>
-         This is the EventCard that will display the event information
+         <b>{eventInfo.timeText}</b>
+         <i>{eventInfo.event.title}</i>
       </div>
-   )
+   );
 }
 
 export default EventCard;
