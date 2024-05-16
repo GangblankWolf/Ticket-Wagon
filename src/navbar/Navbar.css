@@ -1,9 +1,5 @@
 @import '../App.css';
 
-body{
-   color: var(--example-font-color);
-}
-
 .nav-links {
    padding: 0;
    margin: 0;
