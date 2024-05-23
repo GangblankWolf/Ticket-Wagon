@@ -6,11 +6,11 @@ function Navbar() {
          <ul>
             <li><a href='/home'>Logo</a></li>
             <li class='logged-in'><a href='/calendar'>Calendar</a></li>
+            <ul id='login-signup'>
+            <div class='logged-out'><a id='signup' href='/signup'>Sign Up</a></div>
+            <div class='logged-out'><a id='login' href='/login'>Log in</a></div>
+            </ul>
          </ul>
-         <div class='logged-out'>
-            <div id='login'><a href='/login'>Log in</a></div>
-            <div id='signup'><a href='/signup'>Sign Up</a></div>
-            </div>
       </div>
    )
 }
