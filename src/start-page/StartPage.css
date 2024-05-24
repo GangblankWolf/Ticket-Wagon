@@ -45,9 +45,15 @@ display: none;
 }
 
 .textcontainer{
-   width: 40%;
+background-image:url(/public/CalActionDelete.gif);
+background-repeat: no-repeat;
+background-attachment: local;
+background-position-y: 100px;
    position:absolute;
-   
+   background-size: 35%;
+   background-position-x:right;
+   padding-right: 700px;
+   margin-right: 100px;
 }
 
 .CalendarDescription {
@@ -70,8 +76,3 @@ p{
    text-align: right;
 }
 
-img{
-   margin-left: 40%;
-   width: max-content;
-   height: auto;
-}
