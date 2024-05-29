@@ -39,5 +39,7 @@ li a:hover {
  }
 
 
-
+.hidden {
+display: none;
+}
  
