@@ -1,67 +1,69 @@
-@import '../App.css';
-
 body{
-   color: var(--example-font-color);
+   background-color: #344a72;
+   font-family: "Roboto",sans-seridf;
+}
+ .signup-box{
+  width:360px;
+  height: 620px;
+  margin:auto;
+  background-color:white;
+  border: radius 3px; 
 }
 
-.Container1 {
-   color: white;
-   background-image: url('/public/Ticketwagon.png');
-   background-repeat: no-repeat;
-  background-attachment: local;
-  background-position-y: 100px;
-  background-position-x: center;
-   background-color: crimson;
-   background-size: 35%;
-   padding-top: 2%;
-   padding-bottom: 5.9%;
-   height: 500px
+.login-box{
+   width: 360px;
+   height: 280px;
+   margin:auto; 
+   background-color: white;
+}
+form{  
+   width: 300px;
+   margin-left: 20px;
 }
 
-.textposition {
+form label{
+   display:flex;
+margin: top 20px;
+font: size 18px;
+}
+form input {
+width: 100%;
+padding: 7px;
+border:none;
+border:1px solid gray;
+border-radius: 6px;
+outline:none;
+
+
+input[type="button"]{
+width: 320px;
+height:35px;
+margin-top:20px;
+border: none;
+background-color: 49cla2;
+color:white;
+font-size:18px
+}
+
+p{
 text-align: center;
-padding-top: 105.5px;
+padding-top:20px
+font-size: 15px;
 }
 
-#whatif {
-   font-family: sans-serif;
-   font-weight: bolder;
-   font-size: xxx-large;
-}
+.para-2{
+ text-align: center;  
+color: white;
+font-size: 15px;
+margin-top: -10p
+}   
 
-.SearchDescription {
-   text-align: end;
-   padding-right: 450px;
-   padding-top: 150px;
-   padding-left: 10px;
+.para-2 a{
+    color:white; 
 }
+   
+   
 
-#Title {
-   padding-right: 140px;
-   padding-left: 30px;
-   font-size: xx-large;
-}
-
-
-.CalenderDescription {
-   text-align: end;
-   padding-right: 450px;
-   padding-top: 150px;
-   padding-left: 10px;
-}
-
-.Events {
-   text-align: end;
-   padding-right: 450px;
-   padding-top: 150px;
-   padding-left: 10px;
-}
-
-#EVTitle {
-   padding-right: 140px;
-   padding-left: 30px;
-   font-size: xx-large;
-}
 
 p{
    padding-left: 960px;

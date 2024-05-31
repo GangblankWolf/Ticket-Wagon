@@ -1,5 +1,37 @@
-@import '../App.css';
+<!DocTYPE html>
+<html>
 
-body{
-   color: var(--example-font-color);
-}
+<head>
+    <title>sign up</title>
+    <link rel="stylesheet"href="css/style.css">
+    <link href =https://fonts.googleapis.com/css2?family=Roboto
+    rel="stylesheet">
+    </head>
+    </body>
+      <div>class="login-box">
+      <h1>Login </h1>
+      <form>
+       <label>Email</label>
+      <input type="email"placeholder=""
+      <label> password
+      <input type="password"placeholder"">
+      <label>confirm password</label>
+      <input type= "password" placeholder="">
+      <input type="button"value="submit">
+      <p class="para-2">Not have an account?<a href="signup.html"
+      </div>
+      input type="password"placeholder="">
+      <input type="button"value="sumbit">
+      </form>
+      <p>By clicking the sign up button,you agree to our <br>
+      <a href = "#"> Terms and condition</a> and <a href="" ></a>policy And Privacy</a> 
+      </p>
+     </div>
+     <p>Already have an accout? <a href="#">Login here</a
+2">Already have an account?<a href="login.html">Login here</a>
+     </body>
+     </html>
+      
+      </body>
+      </html>
+      
