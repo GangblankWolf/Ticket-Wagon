@@ -55,8 +55,8 @@ router.patch("/comment/:id", async (req, res) => {
 });
 
 // Delete an entry
-router.delete("/:id", async (req, res) => {
-  const query = { _id: ObjectId(req.params.id) };
+router.delete("/", async (req, res) => {
+  const query = { title: req.body.title };
 
   const collection = db.collection("data");
   let result = await collection.deleteOne(query);

@@ -3,7 +3,6 @@ import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 import StartPage from './start-page/StartPage';
 import Login from './login/Login';
 import SignUp from './signup/SignUp';
-import EventCard from './event-card/EventCard';
 import Calendar from './calendar/Calendar';
 
 function Router() {
@@ -21,7 +20,6 @@ function Router() {
             <Route path="/home" element={<Navigate replace to="/calendar"/>}/>
             */}
             <Route path="/calendar" element={<Calendar/>} />
-            <Route path="/calendar/:id" element={<EventCard/>} />
 
          </Routes>
       </BrowserRouter>

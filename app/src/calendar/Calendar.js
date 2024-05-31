@@ -4,13 +4,14 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import { INITIAL_EVENTS, createEventId } from "./event-utils";
-import EventCard from "../event-card/EventCard";
+import { INITIAL_EVENTS } from "./event-utils";
 import "./Calendar.css";
 
 export default function Calendar() {
    const [currentEvents, setCurrentEvents] = useState([]);
    const calendarRef = React.useRef();
+
+   // Modal functionality to open an Event Card
    const [modal, setModal] = useState({ index: null, active: false });
 
    useEffect(() => {
@@ -35,8 +36,21 @@ export default function Calendar() {
       }));
    };
 
+   async function deletePost(title) {
+      console.log(title)
+      await fetch("http://localhost:5050/users/", {
+         method: "DELETE",
+         headers: {
+            "Content-type": "application/json",
+         },
+         body: JSON.stringify({
+            "title": title,
+         })
+      });
+      window.location.reload();
+   }
+
    function handleEventClick(eventInfo) {
-      showDetails(eventInfo.event.id);
       alert(
          "Title: " +
             eventInfo.event.title +
@@ -45,6 +59,13 @@ export default function Calendar() {
             "\nEnd: " +
             eventInfo.event.end
       );
+      if (
+         window.confirm(
+            "Do you want to delete this event?\nPress 'Ok' to delete or 'Cancel' to go back."
+         ) === true
+      ) {
+         deletePost(eventInfo.event.title);
+      }
    }
 
    function handleDateSelect(selectInfo) {}
@@ -53,38 +74,45 @@ export default function Calendar() {
       setCurrentEvents(events);
    }
 
+   async function updateDatabase(title, start, end) {
+      console.log(start, title, end);
+      await fetch("http://localhost:5050/users/", {
+         method: "POST",
+         headers: {
+            "Content-type": "application/json",
+         },
+         body: JSON.stringify({
+            "title": title,
+            "start": start,
+            "end": end,
+         }),
+      }).then((resp) => resp.json());
+   }
+
    function handleAddEventBtn() {
-      let calendarApi = calendarRef.current.getApi();
+      let end;
+      let time;
+      let start;
+      let endPrompt;
       let title = prompt("Input a title");
       let date = prompt("Enter a date in YYYY-MM-DD format");
-      let time = prompt("Enter a start time in 00:00 24-hour format");
-      let start = new Date(date + "T" + time + ":00");
       let allDayPrompt = prompt(
          'Is this an all day event? (Type "Yes" or "No")'
       );
-      let allDay;
-      let end;
-      let endPrompt;
 
       if (allDayPrompt.toLocaleLowerCase() === "yes") {
-         allDay = true;
+         start = date;
+         end = "";
       } else {
-         allDay = false;
+         time = prompt("Enter a start time in 00:00 24-hour format");
+         start = new Date(date + "T" + time + ":00");
          endPrompt = prompt("Enter an end time in 00:00 24-hour format");
          end = new Date(date + "T" + endPrompt + ":00");
       }
 
-      calendarApi.unselect(); // clear date selection
+      updateDatabase(title, start, end);
 
-      if (title) {
-         calendarApi.addEvent({
-            id: createEventId(),
-            title,
-            start: start,
-            end: end,
-            allDay: allDay,
-         });
-      }
+      window.location.reload();
    }
 
    return (
